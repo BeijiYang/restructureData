@@ -20,7 +20,9 @@ try {
     // console.log(err);
 }
 
-let finalStr = intermediaArr.map(item => JSON.stringify(item)).join('\n')
+let finalStr = intermediaArr.map(
+  item => JSON.stringify(item)
+).join('\n')
 
 fs.writeFile('temp.js', finalStr, (err) => {
   if (err) throw err
