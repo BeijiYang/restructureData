@@ -26,7 +26,7 @@ courses.forEach(
   }
 )
 
-console.log(intermediaCourseArr.length);
+console.log(intermediaCourseArr.length)
 
 let finalStr = intermediaCourseArr.map(
   item => JSON.stringify(item)
