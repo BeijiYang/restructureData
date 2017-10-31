@@ -9,22 +9,22 @@ userData.pop()
 userData.forEach(
     item => {
       ({ _id, username, admin, emails, services: {password: {bcrypt}}, createdAt: {$date} } = JSON.parse(item))
-      let tempObj = {}
-      tempObj._id = _id
-      tempObj.username = username
-      tempObj.password = bcrypt
-      tempObj.admin = admin ? admin : false
-      tempObj.wechatId = null
-      tempObj.mails = emails
-      tempObj.contracts = []
-      tempObj.createdAt = $date
+      let tempObj = {
+        _id,
+        username,
+        bcrypt,
+        emails,
+        $date,
+        admin: admin ? admin : false,
+        wechatId: null,
+        contracts: []
+      }
       intermediaArr.push(tempObj)
     }
   )
 
 // Users Colletcion without contracts
-console.log(intermediaArr.length);
-
+console.log(intermediaArr.length)
 
 // VIP数据
 let vipData = fs.readFileSync('vipdata.json', 'utf-8')
