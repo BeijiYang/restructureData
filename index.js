@@ -41,23 +41,21 @@ let vipNum = 0
 let courseNum = 0
 intermediaArr.forEach(
   user => {
-    vipData.forEach(
-      vip => {
-        if (user._id === JSON.parse(vip).userId) {
-          user.contracts.push(JSON.parse(vip)._id)
-          ++vipNum
-        }
+    for (let vip of vipData) {
+      ({userId, _id} = JSON.parse(vip))
+      if (user._id === userId) {
+        user.contracts.push(_id)
+        ++vipNum
       }
-    )
+    }
 
-    courseData.forEach(
-      course => {
-        if (user._id === JSON.parse(course).userId) {
-          user.contracts.push(JSON.parse(course)._id)
-          ++courseNum
-        }
+    for (course of courseData) {
+      ({userId, _id} = JSON.parse(course))
+      if (user._id === userId) {
+        user.contracts.push(_id)
+        ++courseNum
       }
-    )
+    }
   }
 )
 
