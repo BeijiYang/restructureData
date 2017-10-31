@@ -19,7 +19,7 @@
   * `split(）`
 
 * 逐条将数组中的字符串转换为对象，并按需重新组织结构
-  * `map()`
+  * `map() / filter() / forEach()`
   * `JSON.parse`转换
   * 利用临时数组`intermediaArr`保存结果
 
@@ -45,7 +45,10 @@
 mongoimport -d dbName -c collectionName --file temp.js
 ```
 ## 更新
-使用了ES6新特性
+* 使用了ES6新特性
+  * 解构
+  * `for-of`
+  * 对象字面量属性值简写
 
 ## 参考文档
 * [JSON.stringify()](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
