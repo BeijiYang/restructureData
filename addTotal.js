@@ -16,8 +16,12 @@ courseContractArr.forEach(
     let contractObj = JSON.parse(contract)
     let {courseId, total} = contractObj
     total = 0
-    // courseId.forEach(
-    Array.prototype.forEach.call(courseId,
+    // if (Object.prototype.toString.call(courseId) === '[object String]' ) {
+    //   console.log(contractObj);
+    // }
+    // console.log(Object.prototype.toString.call(courseId));
+    courseId.forEach(
+    // Array.prototype.forEach.call(courseId,
       course => {
         for (let {price, link} of priceArr) {
           if (link.slice(1) === course) {
@@ -42,3 +46,5 @@ fs.writeFile('paidCoursesContract.json', finalStr, (err) => {
   if (err) throw err
   console.log('The file has been restructured!')
 })
+
+//         if (contractObj._id.$oid === i._id.$oid) {
