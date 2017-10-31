@@ -8,16 +8,16 @@ userData.pop()
 
 userData.forEach(
     item => {
-      let jsonifyItem = JSON.parse(item)
+      ({ _id, username, admin, emails, services: {password: {bcrypt}}, createdAt: {$date} } = JSON.parse(item))
       let tempObj = {}
-      tempObj._id = jsonifyItem._id
-      tempObj.username = jsonifyItem.username
-      tempObj.password = jsonifyItem.services.password.bcrypt
-      tempObj.admin = jsonifyItem.admin ? jsonifyItem.admin : false
+      tempObj._id = _id
+      tempObj.username = username
+      tempObj.password = bcrypt
+      tempObj.admin = admin ? admin : false
       tempObj.wechatId = null
-      tempObj.mails = jsonifyItem.emails
+      tempObj.mails = emails
       tempObj.contracts = []
-      tempObj.createdAt = jsonifyItem.createdAt.$date
+      tempObj.createdAt = $date
       intermediaArr.push(tempObj)
     }
   )
@@ -35,7 +35,6 @@ vipData.pop()
 let courseData = fs.readFileSync('coursedata.json', 'utf-8')
   .split(/\r?\n/)
 courseData.pop()
-// console.log(JSON.parse(courseData[0]).type)
 
 let vipNum = 0
 let courseNum = 0
