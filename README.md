@@ -44,6 +44,8 @@
 ```
 mongoimport -d dbName -c collectionName --file temp.js
 ```
+## 更新
+使用了ES6新特性
 
 ## 参考文档
 * [JSON.stringify()](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
